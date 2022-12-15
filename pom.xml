@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.compagny</groupId>
 	<artifactId>my-api</artifactId>
-	<version>0.0.8-SNAPSHOT</version>
+	<version>0.0.9-SNAPSHOT</version>
 	<name>my-app</name>
 	<description>Demo project for Spring Boot web MVC H2 Thymeleaf</description>
 	<properties>
@@ -45,6 +45,10 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 	</dependencies>
 
