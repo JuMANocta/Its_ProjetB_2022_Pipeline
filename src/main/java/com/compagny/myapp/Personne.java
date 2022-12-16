@@ -2,6 +2,9 @@ package com.compagny.myapp;
 
 import java.time.LocalDate;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -17,10 +20,18 @@ public class Personne{
     @Id
     @GeneratedValue
     private Long id;
-    
+
+    @Column(name = "nom", columnDefinition = "VARCHAR")
     private String nom;
+    
+    @Column(name = "prenom", columnDefinition = "NVARCHAR")
     private String prenom;
+
+    @Column(name = "date_naissance", columnDefinition = "DATE")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateNaissance;
+
+    @Column(name = "adresse", columnDefinition = "VARCHAR")
     private String adresse;
 
     public Personne() {}
