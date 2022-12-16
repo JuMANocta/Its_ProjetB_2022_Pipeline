@@ -34,9 +34,4 @@ public class MyErrorController implements ErrorController {
 
         return "<h1 style='color:orange'>error contatez moi ou openai ;p</h1>";
     }
-
-    // @Override
-    // public String getErrorPath() {
-    // return PATH;
-    // }
 }
