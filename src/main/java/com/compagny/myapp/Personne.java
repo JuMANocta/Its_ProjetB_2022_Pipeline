@@ -24,7 +24,7 @@ public class Personne{
     @Column(name = "nom", columnDefinition = "VARCHAR")
     private String nom;
     
-    @Column(name = "prenom", columnDefinition = "NVARCHAR")
+    @Column(name = "prenom", columnDefinition = "VARCHAR")
     private String prenom;
 
     @Column(name = "date_naissance", columnDefinition = "DATE")
