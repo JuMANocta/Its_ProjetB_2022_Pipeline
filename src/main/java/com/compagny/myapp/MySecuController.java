@@ -16,14 +16,15 @@ public class MySecuController {
                 // .requestMatchers("/").permitAll()
                 // .requestMatchers("/api").permitAll()
                 // .requestMatchers("/api/**").hasRole("ADMIN")
-                //.requestMatchers("/api/personnes").permitAll()
+                .requestMatchers("/api/personnes").permitAll()
                 .anyRequest().authenticated())
             .formLogin((formLogin)->formLogin
                 //.loginPage("/login")
                 .permitAll())
             .logout((logout)->logout
                 //.logoutUrl("/logout")
-                .permitAll());
+                .permitAll())
+            .csrf().disable();
 
         return http.build();
     }

@@ -23,15 +23,13 @@ public class MyApiController {
 
     @GetMapping(value = "/api/personnes")
     public List<Personne> getPersonnes() {
-        System.out.println("je passe ici");
         return personneRepository.findAll();
     }
 
-    @PostMapping(value = "/api/postpersonnes")
+    @PostMapping(value = "/api/personnes")
     public Personne addPersonne(@RequestBody Personne personne) {
-        System.out.println("personne");
-        // return personneRepository.saveAndFlush(personne);
-        return null;
+        System.out.println("Personne: " + personne);
+        return personneRepository.saveAndFlush(personne);
     }
 
     @DeleteMapping(value = "/api/personnes/{id}")
