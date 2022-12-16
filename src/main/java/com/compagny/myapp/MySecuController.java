@@ -17,6 +17,7 @@ public class MySecuController {
                 // .requestMatchers("/api").permitAll()
                 // .requestMatchers("/api/**").hasRole("ADMIN")
                 // .requestMatchers("/api/**").permitAll()
+                .requestMatchers("/h2-console/**").permitAll()
                 .anyRequest().permitAll())
             .formLogin((formLogin)->formLogin
                 //.loginPage("/login")

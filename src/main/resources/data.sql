@@ -11,10 +11,4 @@ CREATE TABLE personne (
 INSERT INTO personne
 (nom, prenom, date_naissance, adresse) 
 VALUES 
-('Doe', 'John', '1983-10-08', '1 rue de la paix'),
-('Doe', 'John', '1983-10-08', '1 rue de la paix'),
-('Doe', 'John', '1983-10-08', '1 rue de la paix'),
-('Doe', 'John', '1983-10-08', '1 rue de la paix'),
-('Doe', 'John', '1983-10-08', '1 rue de la paix'),
-('Doe', 'John', '1983-10-08', '1 rue de la paix'),
 ('Doe', 'John', '1983-10-08', '1 rue de la paix');
