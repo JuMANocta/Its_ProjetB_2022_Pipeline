@@ -20,19 +20,19 @@ public class MyErrorController implements ErrorController {
             int statusCode = Integer.parseInt(status.toString());
 
             if (statusCode == HttpStatus.BAD_REQUEST.value()) {
-                return "error-400";
+                return "<h1 style='color:pink'>error-400</h1>";
             } else if (statusCode == HttpStatus.UNAUTHORIZED.value()) {
-                return "error-401";
+                return "<h1 style='color:blue'>error-401</h1>";
             } else if (statusCode == HttpStatus.FORBIDDEN.value()) {
-                return "error-403";
+                return "<h1 style='color:yellow'>error-403</h1>";
             } else if (statusCode == HttpStatus.NOT_FOUND.value()) {
-                return "error-404";
+                return "<h1 style='color:green'>error-404</h1>";
             } else if (statusCode == HttpStatus.INTERNAL_SERVER_ERROR.value()) {
-                return "error-500";
+                return "<h1 style='color:red'>error-500</h1>";
             }
         }
 
-        return "error contatez moi ou openai ;p";
+        return "<h1 style='color:orange'>error contatez moi ou openai ;p</h1>";
     }
 
     // @Override
