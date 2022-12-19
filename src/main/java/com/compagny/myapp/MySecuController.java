@@ -14,9 +14,9 @@ public class MySecuController {
         http
             .authorizeHttpRequests((autorize)->autorize
                 // .requestMatchers("/").permitAll()
-                // .requestMatchers("/api").permitAll()
+                .requestMatchers("/api").permitAll()
                 // .requestMatchers("/api/**").hasRole("ADMIN")
-                .requestMatchers("/api/personnes").permitAll()
+                //.requestMatchers("/api/personnes").permitAll()
                 .anyRequest().authenticated())
             .formLogin((formLogin)->formLogin
                 //.loginPage("/login")
@@ -24,7 +24,8 @@ public class MySecuController {
             .logout((logout)->logout
                 //.logoutUrl("/logout")
                 .permitAll())
-            .csrf().disable();
+            .csrf().disable() //pour utiliser l'API sans token
+            .headers().frameOptions().sameOrigin();//pour utiliser la console H2
 
         return http.build();
     }

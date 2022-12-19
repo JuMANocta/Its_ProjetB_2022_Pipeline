@@ -14,15 +14,15 @@ public interface PersonneRepository extends JpaRepository<Personne, Long> {
     @Query("SELECT p FROM Personne p WHERE p.nom = :nom")
     List<Personne> findByNom(@Param("nom") String nom);
     
-    // INSERT
+    // INSERT personne
     @Query("INSERT INTO Personne (nom, prenom, dateNaissance, adresse) VALUES (:nom, :prenom, :dateNaissance, :adresse)")
     Personne saveAndFlush(@Param("nom") String nom, @Param("prenom") String prenom, @Param("dateNaissance") LocalDate dateNaissance, @Param("adresse") String adresse);
 
-    // UPDATE
+    // UPDATE adresse
     @Query("UPDATE Personne SET adresse = :adresse WHERE id = :id")
     void updateAdresse(Long id, String adresse);
 
-    // DELETE
+    // DELETE personne
     @Query("DELETE Personne WHERE id = :id")
     void deleteById(Long id);
 }
