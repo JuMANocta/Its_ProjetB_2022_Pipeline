@@ -12,19 +12,14 @@ import org.springframework.security.web.SecurityFilterChain;
 public class MySecuController {
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-        System.out.println(bCryptPasswordEncoder.encode("test"));
-        System.out.println(bCryptPasswordEncoder.matches("test",bCryptPasswordEncoder.encode("test")));
-        System.out.println(bCryptPasswordEncoder.matches("test","$2a$10$uTqvme81TPn6Xu9f7mqLOOjgCl7GYvPISF9elr9wrfQdBaNtMI51q"));
-
         http
             .authorizeHttpRequests((autorize)->autorize
                 // .requestMatchers("/").permitAll()
-                .requestMatchers("/api").permitAll()
+                //.requestMatchers("/api").permitAll()
                 // .requestMatchers("/api/**").hasRole("ADMIN")
                 //.requestMatchers("/api/personnes").permitAll()
-                //.anyRequest().authenticated())
-                .anyRequest().permitAll())
+                .anyRequest().authenticated())
+                //.anyRequest().permitAll())
             .formLogin((formLogin)->formLogin
                 //.loginPage("/login")
                 .permitAll())
