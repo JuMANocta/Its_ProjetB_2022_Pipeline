@@ -9,12 +9,16 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
 @Entity
 @Table(name = "personne")
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter @Setter
 public class Personne{
     @Id
@@ -33,15 +37,6 @@ public class Personne{
 
     @Column(name = "adresse", columnDefinition = "VARCHAR")
     private String adresse;
-
-    public Personne() {}
-
-    public Personne(String nom, String prenom, LocalDate dateNaissance, String adresse) {
-        this.nom = nom;
-        this.prenom = prenom;
-        this.dateNaissance = dateNaissance;
-        this.adresse = adresse;
-    }
 
     @Override
     public String toString() {
