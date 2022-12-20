@@ -31,8 +31,7 @@ Plusieurs choix sont possibles :
 Suite au lancement de l'application, l'API est disponible avec l'URL: localhost:8080/api.
 
 Les méthodes suivantes sont disponibles à l'URL /api/personnes :
-- GET
-- POST
-- PUT
-- DELETE
+- GET --> ```/api/personnes```
+- POST --> ```{'nom':'DOE','prenom':'Jhon','dateNaissance':'2022-01-01,'adresse':'1 rue du spring'}```
+- DELETE --> ```/api/personnes/{id}```
 
