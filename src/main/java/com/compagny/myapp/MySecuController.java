@@ -13,10 +13,6 @@ import org.springframework.security.web.authentication.AuthenticationFilter;
 public class MySecuController {
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        // utilisation de bcrypt pour le cryptage des mots de passe
-        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-        System.out.println("Mot de passe crypté: " + bCryptPasswordEncoder.encode("test"));
-        System.out.println(bCryptPasswordEncoder.matches("admin", "$2a$10$s8a9Fh/guwH19CR5zCEk2u9Idn82IISRVVhGoI4xjgfx.tqpgqAlC"));
         http
             .authorizeHttpRequests((autorize)->autorize
                 // .requestMatchers("/").permitAll()
