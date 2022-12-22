@@ -7,34 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/emojione@4.0.0/lib/js/emojione.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/emojione@4.0.0/extras/css/emojione.min.css" />
-    <style>
-        .titre_page {
-            text-align: center;
-            font-family: 'Roboto', sans-serif;
-            width: 100%;
-        }
-
-        .text_droite {
-            text-align: right;
-        }
-
-        .date_jour {
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            font-size: 18px;
-        }
-
-        .text_histoire {
-            font-family: 'Roboto', sans-serif;
-            font-size: 16px;
-            width: 80%;
-            margin: auto;
-        }
-        .jenkinspixel{
-            width: 100%;
-            height: auto;
-            margin: auto;
-        }
-    </style>
+    <link rel="stylesheet" th:href="@{css/main.css}">
     <title th:text="${title}"></title>
 </head>
 
@@ -67,7 +40,8 @@
             Et il vécut heureux pour toujours.
         </p>
     </div>
-    <img class="jenkinspixel" src="https://github.com/JuMANocta/Its_ProjetB_2022_Pipeline/blob/master/src/main/resources/static/jenkinspixel.png?raw=true" 
+    <img class="jenkinspixel"
+        th:src="@{images/jenkinspixel.png}"
         alt="Jenkins avec un écran d'ordinateur en pixel --> Dall-E2">
 </body>
 </body>
