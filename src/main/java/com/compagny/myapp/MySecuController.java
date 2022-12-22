@@ -20,7 +20,7 @@ public class MySecuController {
         http
                 .authorizeHttpRequests((autorize) -> autorize
                         // .requestMatchers("/").permitAll()
-                        // .requestMatchers("/api").permitAll()
+                        .requestMatchers("/api").permitAll()
                         // .requestMatchers("/api/**").hasRole("ADMIN")
                         // .requestMatchers("/api/personnes").permitAll()
                         .anyRequest().authenticated())
