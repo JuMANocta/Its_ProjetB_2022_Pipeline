@@ -15,10 +15,18 @@ public class UserService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Users user = userRepository.findByUsername(username);
         if (user == null) {
-            throw new UsernameNotFoundException("User not found");
+            throw new UsernameNotFoundException(String.format("Auncun user --> '%s'.", username));
         }
         System.out.println("User found: " + user.getUsername() + " " + user.getPassword() + " " + user.getRoles());
-        return user;
+        return new org.springframework.security.core.userdetails.User(
+            user.getUsername(),
+            user.getPassword(),
+            true,
+            true,
+            true,
+            true,
+            user.getAuthorities()
+        );
     }
 
 }

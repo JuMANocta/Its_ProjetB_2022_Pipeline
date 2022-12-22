@@ -1,8 +1,11 @@
 package com.compagny.myapp;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import jakarta.persistence.Column;
@@ -19,8 +22,9 @@ import lombok.Setter;
 @Table(name = "users")
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter @Setter
-public class Users implements UserDetails{
+@Getter
+@Setter
+public class Users implements UserDetails {
     @Id
     @GeneratedValue
     private Long id;
@@ -33,13 +37,18 @@ public class Users implements UserDetails{
 
     @Override
     public String toString() {
-        return "Users [password=" + password + ", roles=" + roles + ", username=" + username + "]";
+        return "Users [password=" + password + ", roles=" + roles.toString() + ", username=" + username + "]";
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        // TODO Auto-generated method stub
-        return null;
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        // Ajoutez un GrantedAuthority pour chaque rôle de l'utilisateur
+        // for (String role : user.getRoles()) {
+        //     authorities.add(new SimpleGrantedAuthority(role));
+        // }
+        authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+        return authorities;
     }
 
     @Override
