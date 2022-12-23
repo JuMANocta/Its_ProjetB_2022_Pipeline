@@ -43,11 +43,7 @@ public class Users implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> authorities = new ArrayList<>();
-        // Ajoutez un GrantedAuthority pour chaque rôle de l'utilisateur
-        // for (String role : user.getRoles()) {
-        //     authorities.add(new SimpleGrantedAuthority(role));
-        // }
-        authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+        authorities.add(new SimpleGrantedAuthority(getRoles()));
         return authorities;
     }
 

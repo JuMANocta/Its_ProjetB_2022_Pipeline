@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -13,8 +12,6 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class MySecuController {
-    @Autowired
-    private UserService userService;
     @Autowired
     private UserRepository userRepository;
 
@@ -34,7 +31,7 @@ public class MySecuController {
                 .logout((logout) -> logout
                         // .logoutUrl("/logout")
                         .permitAll())
-                .csrf().disable() // pour utiliser l'API sans token
+                .csrf().disable() // pour utiliser l'API sans token CSRF
                 .headers().frameOptions().sameOrigin();// pour utiliser la console H2
         return http.build();
     }
@@ -45,8 +42,10 @@ public class MySecuController {
     }
 
     @Bean
+    // cette méthode viens ajouter un utilisateur admin dans la base de données et test 
     public void injectBdd(){
         System.out.println("Injecting Admin in BDD");
-        userRepository.save(new Users(null, "admin", passwordEncoder().encode("admin"), "ADMIN"));
+        userRepository.save(new Users(null, "admin", passwordEncoder().encode("admin"), "ROLE_ADMIN"));
+        userRepository.save(new Users(null, "test", passwordEncoder().encode("test"), "ROLE_USER"));
     }
 }

@@ -16,7 +16,7 @@
         <h1 th:text="${message}"></h1>
     </div>
 
-    <p class="text_droite">My App is running <span class="emoji">&#128170;</span></p>
+    <p class="text_droite" id="text_droite">My App is running <span class="emoji">&#128170;</span></p>
     <p class="date_jour">Nous somme le : <span th:text="${date}">erreur</span></p>
     <h2>L'histoire du Dragon par Openai</h2>
     <div class="text_histoire">
@@ -40,10 +40,9 @@
             Et il vécut heureux pour toujours.
         </p>
     </div>
-    <img class="jenkinspixel"
-        th:src="@{images/jenkinspixel.png}"
+    <img class="jenkinspixel" th:src="@{images/jenkinspixel.png}"
         alt="Jenkins avec un écran d'ordinateur en pixel --> Dall-E2">
 </body>
-</body>
+<script th:src="@{js/main.js}"></script>
 
 </html>
